@@ -2,28 +2,28 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "My Shinylive Demo",
+    "title": "Basic version Demo",
     "section": "",
     "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
   },
   {
     "objectID": "index.html#nemo-enim-ipsam",
     "href": "index.html#nemo-enim-ipsam",
-    "title": "My Shinylive Demo",
+    "title": "Basic version Demo",
     "section": "",
     "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
   },
   {
     "objectID": "index.html#regular-quarto-content",
     "href": "index.html#regular-quarto-content",
-    "title": "My Shinylive Demo",
+    "title": "Basic version Demo",
     "section": "Regular Quarto Content",
     "text": "Regular Quarto Content\nThis is a regular markdown text that will appear in the report."
   },
   {
     "objectID": "index.html#interactive-component",
     "href": "index.html#interactive-component",
-    "title": "My Shinylive Demo",
+    "title": "Basic version Demo",
     "section": "Interactive Component",
     "text": "Interactive Component\nHere’s a simple interactive histogram:\n#| '!! shinylive warning !!': |\n#|   shinylive does not work in self-contained HTML documents.\n#|   Please set `embed-resources: false` in your metadata.\n#| standalone: true\n#| viewerHeight: 400\n\nlibrary(shiny)\n\nui &lt;- fluidPage(\n  titlePanel(\"Simple Histogram\"),\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"bins\", \"Number of bins:\", min = 1, max = 50, value = 30)\n    ),\n    mainPanel(\n      plotOutput(\"distPlot\")\n    )\n  )\n)\n\nserver &lt;- function(input, output) {\n  output$distPlot &lt;- renderPlot({\n    x &lt;- faithful[, 2]\n    bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)\n    hist(x, breaks = bins, col = \"darkgray\", border = \"white\",\n         xlab = \"Waiting time (mins)\",\n         main = \"Histogram of waiting times\")\n  })\n}\n\nshinyApp(ui, server)"
   }
